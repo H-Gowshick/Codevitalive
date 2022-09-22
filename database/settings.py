@@ -9,24 +9,29 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-import os
 
+import dj_database_url
+import os
+from django.test.runner import DiscoverRunner
 from pathlib import Path
 from django.conf import settings
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+IS_HEROKU = "DYNO" in os.environ
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%ks*&%44=+u6=r&xxs$6qb2kd%mp-j8sss61ql#oso@@@jz04n'
-
+SECRET_KEY = ""
+if 'SECRET_KEY' in os.environ:
+    SECRET_KEY = os.environ["SECRET_KEY"]
+    
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["skill-brewery-intern.herokuapp.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
