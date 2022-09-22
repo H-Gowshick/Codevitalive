@@ -1,1 +1,1 @@
-web: gunicorn hellodjango.wsgi
+web:gunicorn --bind 0.0.0.0:8000 database.wsgi
