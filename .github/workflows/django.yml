@@ -28,6 +28,7 @@ jobs:
         pip install secure-smtplib
         pip install email-to
         pip install heroku
+        pip install gunicorn
     - name: Run Tests
       run: |
         python manage.py test
