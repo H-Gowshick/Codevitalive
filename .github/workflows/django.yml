@@ -23,7 +23,10 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
       run: |
-        pip install django
+        pip install Django
+        pip install Pyrebase4
+        pip install secure-smtplib
+        pip install email-to
     - name: Run Tests
       run: |
         python manage.py test
