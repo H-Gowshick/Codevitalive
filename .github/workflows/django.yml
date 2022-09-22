@@ -27,6 +27,7 @@ jobs:
         pip install Pyrebase4
         pip install secure-smtplib
         pip install email-to
+        pip install heroku
     - name: Run Tests
       run: |
         python manage.py test
